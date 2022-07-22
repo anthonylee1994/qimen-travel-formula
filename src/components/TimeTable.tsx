@@ -17,7 +17,7 @@ export const TimeTable = React.memo<Props>(({bazi}) => {
     const 地支表 = Object.values(地支);
 
     return (
-        <Grid pt={0} px={1} pb={1} templateColumns="1fr auto 1fr" gap={1}>
+        <Grid w="full" pt={0} px={1} pb={1} templateColumns="1fr 100fr 1fr" gap={1}>
             {地支表.map((目前時支, index) => {
                 const 時干索引 = 天干表.indexOf(時干);
                 const 目前時干 = 天干表[(時干索引 + index) % 10];

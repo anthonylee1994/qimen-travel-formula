@@ -1,5 +1,5 @@
 import React from "react";
-import {ChakraProvider} from "@chakra-ui/react";
+import {ChakraProvider, Container} from "@chakra-ui/react";
 import {AppBar} from "./components/AppBar";
 import moment from "moment";
 import {BaziUtil} from "./utils/BaziUtil";
@@ -12,9 +12,11 @@ export const App = React.memo(() => {
 
     return (
         <ChakraProvider>
-            <AppBar date={date} setDate={setDate} />
-            <BaziTable bazi={bazi} />
-            <TimeTable bazi={bazi} />
+            <Container p={0}>
+                <AppBar date={date} setDate={setDate} />
+                <BaziTable bazi={bazi} />
+                <TimeTable bazi={bazi} />
+            </Container>
         </ChakraProvider>
     );
 });

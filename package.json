@@ -17,6 +17,7 @@
         "@types/react": "^18.0.0",
         "@types/react-dom": "^18.0.0",
         "framer-motion": "^6.5.1",
+        "gh-pages": "^4.0.0",
         "lodash": "^4.17.21",
         "moment": "^2.29.4",
         "react": "^18.2.0",
@@ -27,7 +28,8 @@
     },
     "scripts": {
         "start": "react-scripts start",
-        "build": "rm -rf docs && react-scripts build && mv build docs",
+        "build": "react-scripts build",
+        "deploy": "gh-pages -d build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
         "format": "prettier --write 'src/**/*.{ts,tsx,js,jsx,json,md,css,scss,less,yml,html}'"
