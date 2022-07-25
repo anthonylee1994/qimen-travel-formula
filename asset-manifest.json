@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/qimen-travel-formula/static/css/main.93a0497a.css",
-    "main.js": "/qimen-travel-formula/static/js/main.82bd832e.js",
+    "main.js": "/qimen-travel-formula/static/js/main.b70a08fd.js",
     "static/js/787.0efb0c78.chunk.js": "/qimen-travel-formula/static/js/787.0efb0c78.chunk.js",
     "index.html": "/qimen-travel-formula/index.html",
     "main.93a0497a.css.map": "/qimen-travel-formula/static/css/main.93a0497a.css.map",
-    "main.82bd832e.js.map": "/qimen-travel-formula/static/js/main.82bd832e.js.map",
+    "main.b70a08fd.js.map": "/qimen-travel-formula/static/js/main.b70a08fd.js.map",
     "787.0efb0c78.chunk.js.map": "/qimen-travel-formula/static/js/787.0efb0c78.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.93a0497a.css",
-    "static/js/main.82bd832e.js"
+    "static/js/main.b70a08fd.js"
   ]
 }
