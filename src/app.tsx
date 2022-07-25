@@ -4,7 +4,7 @@ import {AppBar} from "./components/AppBar";
 import moment from "moment";
 import {BaziUtil} from "./utils/BaziUtil";
 import {BaziTable} from "./components/BaziTable";
-import {TimeTable} from "./components/TimeTable";
+import {TimeTable} from "./components/timetable/TimeTable";
 
 export const App = React.memo(() => {
     const [date, setDate] = React.useState(moment().format("YYYY-MM-DD"));
