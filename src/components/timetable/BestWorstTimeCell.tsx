@@ -1,28 +1,26 @@
 import React from "react";
 import {GridItem} from "@chakra-ui/react";
-import {ScoreLucky} from "../../utils/TravelFormulaUtil";
+import {BestWorstTimeType} from "../../utils/TravelFormulaUtil";
 
 interface Props {
-    value: ScoreLucky;
+    type: BestWorstTimeType | null;
 }
 
-export const LuckyCell = React.memo<Props>(({value}) => {
+export const BestWorstTimeCell = React.memo<Props>(({type}) => {
     return (
         <GridItem
             w={6}
+            p={1}
             fontSize="sm"
-            flexDirection="column"
             display="flex"
+            flexDirection="column"
             alignItems="center"
             justifyContent="center"
             color="white"
-            p={1}
-            bgColor={value.includes("吉") ? "red.500" : "black"}
+            bgColor={type === "天顯時格" ? "pink.500" : type === "五不遇時" ? "blue.500" : "gray.300"}
             fontWeight="bold"
         >
-            {value.split("").map(x => (
-                <div key={x}>{x}</div>
-            ))}
+            {type}
         </GridItem>
     );
 });

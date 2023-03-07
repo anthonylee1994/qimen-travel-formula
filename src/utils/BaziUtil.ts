@@ -1,5 +1,5 @@
-import {PaiPan} from "../lib/paipan";
 import moment from "moment";
+import {PaiPan} from "../lib/paipan";
 import {天干} from "../interfaces/天干";
 import {地支} from "../interfaces/地支";
 

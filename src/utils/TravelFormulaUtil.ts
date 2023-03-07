@@ -4,6 +4,8 @@ import {地支} from "../interfaces/地支";
 
 export type ScoreLucky = "大吉" | "吉" | "凶" | "大凶";
 
+export type BestWorstTimeType = "天顯時格" | "五不遇時";
+
 export interface ScoreResult {
     lucky: ScoreLucky;
     poem: string;
