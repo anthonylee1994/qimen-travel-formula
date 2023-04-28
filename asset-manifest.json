@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/qimen-travel-formula/static/css/main.93a0497a.css",
-    "main.js": "/qimen-travel-formula/static/js/main.f1c25c6c.js",
-    "static/js/787.0efb0c78.chunk.js": "/qimen-travel-formula/static/js/787.0efb0c78.chunk.js",
-    "index.html": "/qimen-travel-formula/index.html",
-    "main.93a0497a.css.map": "/qimen-travel-formula/static/css/main.93a0497a.css.map",
-    "main.f1c25c6c.js.map": "/qimen-travel-formula/static/js/main.f1c25c6c.js.map",
-    "787.0efb0c78.chunk.js.map": "/qimen-travel-formula/static/js/787.0efb0c78.chunk.js.map"
+    "main.css": "/static/css/main.93a0497a.css",
+    "main.js": "/static/js/main.64d711ed.js",
+    "static/js/787.0efb0c78.chunk.js": "/static/js/787.0efb0c78.chunk.js",
+    "index.html": "/index.html",
+    "main.93a0497a.css.map": "/static/css/main.93a0497a.css.map",
+    "main.64d711ed.js.map": "/static/js/main.64d711ed.js.map",
+    "787.0efb0c78.chunk.js.map": "/static/js/787.0efb0c78.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.93a0497a.css",
-    "static/js/main.f1c25c6c.js"
+    "static/js/main.64d711ed.js"
   ]
 }
