@@ -2,7 +2,7 @@
     "name": "qimen-travel-formula",
     "version": "0.1.0",
     "private": true,
-    "homepage": "https://anthonylee1994.github.io/qimen-travel-formula",
+    "homepage": "/",
     "dependencies": {
         "@chakra-ui/icons": "^2.0.4",
         "@chakra-ui/react": "^2.2.4",
