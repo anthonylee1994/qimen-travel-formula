@@ -7,9 +7,8 @@ import {地支} from "../../interfaces/地支";
 import {HourCell} from "./HourCell";
 import {PoemCell} from "./PoemCell";
 import {LuckyCell} from "./LuckyCell";
-import {BestWorstTimeCell} from "./BestWorstTimeCell";
-import {AuspiciousTimeUtil} from "../../utils/AuspiciousTimeUtil";
-import {FiveUnavoidableTimeUtil} from "../../utils/FiveUnavoidableTimeUtil";
+import {AstrologicalTimeCell} from "./AstrologicalTimeCell";
+import {AstrologicalTimeUtil} from "../../utils/AstrologicalTimeUtil";
 
 interface Props {
     bazi: [string, string, string, string];
@@ -35,9 +34,7 @@ export const TimeTable = React.memo<Props>(({bazi}) => {
                         <HourCell score={score} hour={[目前時干, 目前時支]} />
                         <PoemCell value={result.poem} />
                         <LuckyCell value={result.lucky} />
-                        <BestWorstTimeCell
-                            type={AuspiciousTimeUtil.isAuspiciousTime(日干, 目前時支) ? "天顯時格" : FiveUnavoidableTimeUtil.isFiveUnavoidableTime(日干, 目前時干) ? "五不遇時" : null}
-                        />
+                        <AstrologicalTimeCell type={AstrologicalTimeUtil.getType(日干, 目前時干, 目前時支)} />
                     </React.Fragment>
                 );
             })}
