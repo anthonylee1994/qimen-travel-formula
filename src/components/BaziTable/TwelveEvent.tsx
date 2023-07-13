@@ -9,7 +9,19 @@ interface Props {
 
 export const TwelveEvent = React.memo<Props>(({value}) => {
     return (
-        <GridItem flexDirection="column" display="flex" alignItems="center" justifyContent="center" w="100%" p={1.5} color="orange.600" borderStyle="solid" borderWidth={2} borderColor="orange.300">
+        <GridItem
+            flexDirection="column"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            w="100%"
+            p={1.5}
+            color="orange.600"
+            borderStyle="solid"
+            borderWidth={2}
+            borderColor="orange.300"
+            bgColor="orange.50"
+        >
             <Text fontWeight="bold" fontSize="lg">
                 {value}日
             </Text>

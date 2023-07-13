@@ -12,6 +12,11 @@ const getPatterns = (日支: 地支, 時支: 地支): 地支關係[] => {
     return arr;
 };
 
+export const isBadPattern = (value: 地支關係): boolean => {
+    return ["刑", "沖", "破", "害"].some(_ => value.startsWith(_));
+};
+
 export const EarthPatternUtil = Object.freeze({
     getPatterns,
+    isBadPattern,
 });
