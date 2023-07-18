@@ -8,7 +8,7 @@ interface Props {
 
 export const AstrologicalTimeCell = React.memo<Props>(({type}) => {
     return (
-        <GridItem w={6} p={1} fontSize="sm" display="flex" flexDirection="column" alignItems="center" justifyContent="center" color="white" bgColor={bgColor(type)} fontWeight="bold">
+        <GridItem w="full" p={1} fontSize="sm" display="flex" flexDirection="column" alignItems="center" justifyContent="center" color="white" bgColor={bgColor(type)} fontWeight="bold">
             {type}
         </GridItem>
     );

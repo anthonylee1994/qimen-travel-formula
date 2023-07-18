@@ -9,7 +9,7 @@ interface Props {
 export const LuckyCell = React.memo<Props>(({value}) => {
     return (
         <GridItem
-            w={6}
+            w="full"
             fontSize="sm"
             flexDirection="column"
             display="flex"
