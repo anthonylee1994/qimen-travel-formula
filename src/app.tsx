@@ -4,14 +4,14 @@ import {AppBar} from "./components/AppBar";
 import moment from "moment";
 import {BaziTable} from "./components/BaziTable";
 import {TimeTable} from "./components/timetable/TimeTable";
-import {Lunar} from "lunar-typescript";
+import {useLunar} from "./hooks/useLunar";
+import {useKeyArrow} from "./hooks/useKeyArrow";
 
 export const App = React.memo(() => {
     const [date, setDate] = React.useState(moment().format("YYYY-MM-DD"));
-    const lunar = React.useMemo(() => {
-        const d = moment(date, "YYYY-MM-DD").toDate();
-        return Lunar.fromDate(d);
-    }, [date]);
+    const lunar = useLunar(date);
+
+    useKeyArrow(setDate);
 
     return (
         <ChakraProvider>
