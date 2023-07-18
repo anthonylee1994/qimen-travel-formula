@@ -15,8 +15,6 @@ export const useAngelDevils = (lunar: Lunar) => {
     const 日干 = first(日柱) as 天干;
     const 日支 = last(日柱) as 地支;
 
-    console.log(年柱, 月柱, 日柱);
-
     const yearAngelDevils = [...AngelDevilUtil.getAngelDevil(年支, 月支), ...AngelDevilUtil.getAngelDevil(年支, 日支)];
     const yearNobleMen = [
         ...(NobleManUtil.is天乙貴人(年干, 年支) ? ["天乙貴人"] : []),
