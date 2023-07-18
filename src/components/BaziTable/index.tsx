@@ -41,7 +41,7 @@ export const BaziTable = React.memo<Props>(({lunar}) => {
                 <AngelDevil title="日神煞" values={DisplayUtil.groupItems([...dayNobleMen, ...dayAngels, ...dayDevils])} />
             </Flex>
             <Flex gap={1}>
-                <AngelDevil title="日月神煞" values={DisplayUtil.groupItems([...yearNobleMen, ...dayNobleMen, ...yearAngels, ...dayAngels, ...yearDevils, ...dayDevils])} />
+                <AngelDevil title="年日神煞" values={DisplayUtil.groupItems([...yearNobleMen, ...dayNobleMen, ...yearAngels, ...dayAngels, ...yearDevils, ...dayDevils])} />
             </Flex>
         </Grid>
     );
