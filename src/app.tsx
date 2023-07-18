@@ -2,7 +2,6 @@ import React from "react";
 import {ChakraProvider, Container} from "@chakra-ui/react";
 import {AppBar} from "./components/AppBar";
 import moment from "moment";
-import {BaziUtil} from "./utils/BaziUtil";
 import {BaziTable} from "./components/BaziTable";
 import {TimeTable} from "./components/timetable/TimeTable";
 import {Lunar} from "lunar-typescript";
