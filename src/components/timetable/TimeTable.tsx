@@ -49,16 +49,16 @@ export const TimeTable = React.memo(({bazi}: Props) => {
                         <LuckyCell value={result.lucky} />
                         <EarthPatternCell
                             values={DisplayUtil.groupItems([
-                                ...EarthPatternUtil.getPatterns(年支, 目前時支),
-                                ...EarthPatternUtil.getPatterns(月支, 目前時支),
-                                ...EarthPatternUtil.getPatterns(日支, 目前時支),
+                                ...EarthPatternUtil.getPatterns(目前時支, 年支),
+                                ...EarthPatternUtil.getPatterns(目前時支, 月支),
+                                ...EarthPatternUtil.getPatterns(目前時支, 日支),
                             ])}
                         />
                         <AngleDevilCell
                             values={DisplayUtil.groupItems([
-                                ...AngelDevilUtil.getAngelDevil(年支, 目前時支),
-                                ...AngelDevilUtil.getAngelDevil(月支, 目前時支),
-                                ...AngelDevilUtil.getAngelDevil(日支, 目前時支),
+                                ...AngelDevilUtil.getAngelDevil(目前時支, 年支),
+                                ...AngelDevilUtil.getAngelDevil(目前時支, 月支),
+                                ...AngelDevilUtil.getAngelDevil(目前時支, 日支),
                                 ...(NobleManUtil.is天乙貴人(年干, 目前時支) ? ["天乙貴人"] : []),
                                 ...(NobleManUtil.is天乙貴人(月干, 目前時支) ? ["天乙貴人"] : []),
                                 ...(NobleManUtil.is天乙貴人(日干, 目前時支) ? ["天乙貴人"] : []),
