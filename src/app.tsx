@@ -14,14 +14,11 @@ export const App = React.memo(() => {
         return Lunar.fromDate(d);
     }, [date]);
 
-    const bazi = BaziUtil.fromDate(lunar);
-    console.log("lunar.getQi()", lunar.getPrevQi());
-
     return (
         <ChakraProvider>
             <Container p={0}>
                 <AppBar date={date} setDate={setDate} />
-                <BaziTable bazi={bazi} />
+                <BaziTable lunar={lunar} />
                 <TimeTable lunar={lunar} />
             </Container>
         </ChakraProvider>

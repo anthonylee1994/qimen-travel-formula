@@ -12,12 +12,15 @@ import {AngelDevilUtil} from "../../utils/AngelDevilUtil";
 import {天干} from "../../interfaces/天干";
 import {NobleManUtil} from "../../utils/NobleManUtil";
 import {DisplayUtil} from "../../utils/DisplayUtil";
+import {Lunar} from "lunar-typescript";
+import {BaziUtil} from "../../utils/BaziUtil";
 
 interface Props {
-    bazi: [string, string, string, string];
+    lunar: Lunar;
 }
 
-export const BaziTable = React.memo<Props>(({bazi}) => {
+export const BaziTable = React.memo<Props>(({lunar}) => {
+    const bazi = BaziUtil.fromDate(lunar);
     const [年柱, 月柱, 日柱] = bazi;
     const 年干 = first(年柱) as 天干;
     const 年支 = last(年柱) as 地支;
@@ -59,7 +62,7 @@ export const BaziTable = React.memo<Props>(({bazi}) => {
     return (
         <Grid p={1} templateColumns="repeat(1, 1fr)" gap={1}>
             <Bazi bazi={bazi} />
-            <TwelveEvent value={月建} />
+            <TwelveEvent event={月建} />
             <Flex gap={1}>
                 <EarthPattern title="年月關係" values={EarthPatternUtil.getPatterns(年支, 月支)} />
                 <EarthPattern title="月日關係" values={EarthPatternUtil.getPatterns(月支, 日支)} />

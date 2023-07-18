@@ -4,10 +4,10 @@ import {TwelveEventUtil} from "../../utils/TwelveEventUtil";
 import {十二月建} from "../../interfaces/十二月建";
 
 interface Props {
-    value: 十二月建;
+    event: 十二月建;
 }
 
-export const TwelveEvent = React.memo<Props>(({value}) => {
+export const TwelveEvent = React.memo<Props>(({event}) => {
     return (
         <GridItem
             flexDirection="column"
@@ -23,10 +23,10 @@ export const TwelveEvent = React.memo<Props>(({value}) => {
             bgColor="orange.50"
         >
             <Text fontWeight="bold" fontSize="lg">
-                {value}日
+                {event}日
             </Text>
             <Text fontSize="sm" textAlign="center" color="orange.900">
-                {TwelveEventUtil.poemOf(value)}
+                {TwelveEventUtil.poemOf(event)}
             </Text>
         </GridItem>
     );

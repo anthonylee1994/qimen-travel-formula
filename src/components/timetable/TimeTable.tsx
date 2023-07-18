@@ -37,7 +37,6 @@ export const TimeTable = React.memo(({lunar}: Props) => {
     const 天干表 = Object.values(天干);
     const 地支表 = Object.values(地支);
     const 十二神 = TwelveEventUtil.getGenerals(lunar.getPrevQi().getName(), 日支);
-    console.log("十二神", 十二神);
 
     return (
         <Grid w="full" pt={0} px={1} pb={1} templateColumns="1fr 100fr 1fr 1fr 1fr 1fr 1fr" gap={1}>
