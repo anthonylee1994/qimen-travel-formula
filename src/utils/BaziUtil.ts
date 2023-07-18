@@ -1,13 +1,9 @@
-import moment from "moment";
-import {PaiPan} from "../lib/paipan";
+import {Lunar} from "lunar-typescript";
 import {天干} from "../interfaces/天干";
 import {地支} from "../interfaces/地支";
 
-const fromDate = (date: string): [string, string, string, string] => {
-    const d = moment(date, "YYYY-MM-DD").toDate();
-    const paipan = new PaiPan().fatemaps(0, d.getFullYear(), d.getMonth() + 1, d.getDate(), 1, 0, 0, 114, 5) as any;
-
-    return paipan.sz;
+const fromDate = (lunar: Lunar): [string, string, string, string] => {
+    return lunar.getBaZi() as [string, string, string, string];
 };
 
 const color = (value: 天干 | 地支): string => {

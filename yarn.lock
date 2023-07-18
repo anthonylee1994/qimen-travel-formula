@@ -7095,6 +7095,11 @@ lru-cache@^6.0.0:
   dependencies:
     yallist "^4.0.0"
 
+lunar-typescript@^1.6.7:
+  version "1.6.7"
+  resolved "https://registry.yarnpkg.com/lunar-typescript/-/lunar-typescript-1.6.7.tgz#36366a012566de10c19a75912c84bf08e66789bc"
+  integrity sha512-+a1E5OGgxjg1ZZFsXGhyvQKT2WvQxwHddk+9w6Y9uAZkW79DGjwOTLT4Qqy/K29zw+Z5/kxO7ZLFvbC8BQMjNQ==
+
 lz-string@^1.4.4:
   version "1.4.4"
   resolved "https://registry.yarnpkg.com/lz-string/-/lz-string-1.4.4.tgz#c0d8eaf36059f705796e1e344811cf4c498d3a26"

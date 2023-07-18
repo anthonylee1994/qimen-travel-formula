@@ -25,7 +25,7 @@ export const BaziTable = React.memo<Props>(({bazi}) => {
     const 月支 = last(月柱) as 地支;
     const 日干 = first(日柱) as 天干;
     const 日支 = last(日柱) as 地支;
-    const 月建 = TwelveEventUtil.getDay(月支, 日支);
+    const 月建 = TwelveEventUtil.getEvent(月支, 日支);
 
     const 年神煞 = [
         ...AngelDevilUtil.getAngelDevil(年支, 年支),

@@ -17,12 +17,15 @@ import {AngleDevilCell} from "./AngelDevilCell";
 import {AngelDevilUtil} from "../../utils/AngelDevilUtil";
 import {DisplayUtil} from "../../utils/DisplayUtil";
 import {NobleManUtil} from "../../utils/NobleManUtil";
+import {Lunar} from "lunar-typescript";
+import {BaziUtil} from "../../utils/BaziUtil";
 
 interface Props {
-    bazi: [string, string, string, string];
+    lunar: Lunar;
 }
 
-export const TimeTable = React.memo(({bazi}: Props) => {
+export const TimeTable = React.memo(({lunar}: Props) => {
+    const bazi = BaziUtil.fromDate(lunar);
     const [年柱, 月柱, 日柱, 時柱] = bazi;
     const 年干 = first(年柱) as 天干;
     const 年支 = last(年柱) as 地支;
@@ -33,6 +36,8 @@ export const TimeTable = React.memo(({bazi}: Props) => {
     const 時干 = first(時柱) as 天干;
     const 天干表 = Object.values(天干);
     const 地支表 = Object.values(地支);
+    const 十二神 = TwelveEventUtil.getGenerals(lunar.getPrevQi().getName(), 日支);
+    console.log("十二神", 十二神);
 
     return (
         <Grid w="full" pt={0} px={1} pb={1} templateColumns="1fr 100fr 1fr 1fr 1fr 1fr 1fr" gap={1}>
@@ -65,7 +70,7 @@ export const TimeTable = React.memo(({bazi}: Props) => {
                                 ...(NobleManUtil.is天乙貴人(目前時干, 目前時支) ? ["天乙貴人"] : []),
                             ])}
                         />
-                        <TwelveEventCell value={TwelveEventUtil.getDay(日支, 目前時支)} />
+                        <TwelveEventCell event={TwelveEventUtil.getEvent(日支, 目前時支)} general={十二神[index]} />
                         <AstrologicalTimeCell type={AstrologicalTimeUtil.getType(日干, 目前時干, 目前時支)} />
                     </React.Fragment>
                 );

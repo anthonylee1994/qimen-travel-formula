@@ -1,7 +1,24 @@
-import {十二月建} from "../interfaces/十二月建";
+import {十二月將, 十二月建} from "../interfaces/十二月建";
 import {地支, 地支序} from "../interfaces/地支";
 
 const twelveEvents: 十二月建[] = ["建", "除", "滿", "平", "定", "執", "破", "危", "成", "收", "開", "閉"];
+
+const twelveMonthGeneralMap: Record<string, 十二月將> = {
+    冬至: "大吉",
+    大寒: "神后",
+    雨水: "徵明",
+    春分: "天魁",
+    谷雨: "從魁",
+    小满: "傳送",
+    夏至: "小吉",
+    大暑: "勝光",
+    处暑: "太乙",
+    秋分: "天罡",
+    霜降: "太衝",
+    小雪: "功曹",
+};
+
+const generals = ["神后", "大吉", "功曹", "太衝", "天罡", "太乙", "勝光", "小吉", "傳送", "從魁", "天魁", "徵明"];
 
 const poems: string[] = [
     "月建秉執之意，此日宜出行上任、做公職辦事，不宜婚姻及開倉之事",
@@ -18,9 +35,9 @@ const poems: string[] = [
     "閉戶息養之意，此日做事宜閉不宜開，宜休整規劃，不宜求醫手術、娶妻妄動",
 ];
 
-const getDay = (月令: 地支, 日支: 地支): 十二月建 => {
+const getEvent = (月令: 地支, 地支: 地支): 十二月建 => {
     const monthIndex = 地支序.indexOf(月令);
-    const dayIndex = 地支序.indexOf(日支);
+    const dayIndex = 地支序.indexOf(地支);
 
     if (dayIndex >= monthIndex) {
         return twelveEvents[dayIndex - monthIndex];
@@ -29,8 +46,20 @@ const getDay = (月令: 地支, 日支: 地支): 十二月建 => {
     }
 };
 
+const getGenerals = (中氣: string, 日支: 地支): 十二月將[] => {
+    const currentGeneral = twelveMonthGeneralMap[中氣];
+    const monthIndex = generals.indexOf(currentGeneral);
+    const dayIndex = 地支序.indexOf(日支);
+    const generalInOrders = [...generals.slice(monthIndex), ...generals.slice(0, monthIndex)];
+    return [...generalInOrders.slice(-dayIndex), ...generalInOrders.slice(0, -dayIndex)] as 十二月將[];
+};
+
+const getGeneralDiZhi = (general: 十二月將): 地支 => {
+    return 地支序[generals.indexOf(general)];
+};
+
 const poemOf = (event: 十二月建): string => {
     return poems[twelveEvents.indexOf(event)];
 };
 
-export const TwelveEventUtil = Object.freeze({getDay, poemOf});
+export const TwelveEventUtil = Object.freeze({getEvent, getGenerals, getGeneralDiZhi, poemOf});
