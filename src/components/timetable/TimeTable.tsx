@@ -21,6 +21,7 @@ import {Lunar} from "lunar-typescript";
 import {BaziUtil} from "../../utils/BaziUtil";
 import {useAngelDevils} from "../../hooks/useAngelDevils";
 import {useEarthPatterns} from "../../hooks/useEarthPatterns";
+import {LittleLiurenUtil} from "../../utils/LittleLiurenUtil";
 
 interface Props {
     lunar: Lunar;
@@ -42,7 +43,7 @@ export const TimeTable = React.memo(({lunar}: Props) => {
     const 十二神 = TwelveEventUtil.getGenerals(lunar.getPrevQi().getName(), 日支);
 
     return (
-        <Grid w="full" pt={0} px={1} pb={1} templateColumns="1fr 100fr 1fr 1fr 1fr" gap={1}>
+        <Grid w="full" pt={0} px={1} pb={1} templateColumns="1fr 100fr 1fr 1fr 1fr 1fr" gap={1}>
             {地支表.map((目前時支, index) => {
                 const 時干索引 = 天干表.indexOf(時干);
                 const 目前時干 = 天干表[(時干索引 + index) % 10];
@@ -63,12 +64,13 @@ export const TimeTable = React.memo(({lunar}: Props) => {
                     ...EarthPatternUtil.getPatterns(目前時支, 日支),
                 ];
 
+                const littleLiuren = LittleLiurenUtil.getResult(lunar, 目前時支);
+
                 return (
                     <React.Fragment key={index}>
                         <HourCell score={score} hour={[目前時干, 目前時支]} />
                         <PoemCell value={result.poem} />
-                        <LuckyCell value={result.lucky} />
-                        <AstrologicalTimeCell type={AstrologicalTimeUtil.getType(日干, 目前時干, 目前時支)} />
+                        <LuckyCell lucky={result.lucky.includes("吉")} value={result.lucky} />
                         <Flex bgColor="red" width="100px" flexDirection="column">
                             <EarthPatternCell
                                 values={DisplayUtil.groupItems([...earthPatterns.filter(_ => !EarthPatternUtil.isBadPattern(_)), ...earthPatterns.filter(EarthPatternUtil.isBadPattern)])}
@@ -76,6 +78,8 @@ export const TimeTable = React.memo(({lunar}: Props) => {
                             <AngleDevilCell values={DisplayUtil.groupItems([...totalNobleMen, ...nobleMen, ...totalAngels, ...angels, ...totalDevils, ...devils])} />
                             <TwelveEventCell event={TwelveEventUtil.getEvent(日支, 目前時支)} general={十二神[index]} />
                         </Flex>
+                        <AstrologicalTimeCell type={AstrologicalTimeUtil.getType(日干, 目前時干, 目前時支)} />
+                        <LuckyCell lucky={LittleLiurenUtil.isLucky(littleLiuren)} value={littleLiuren} />
                     </React.Fragment>
                 );
             })}
