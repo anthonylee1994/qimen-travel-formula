@@ -8,7 +8,18 @@ interface Props {
 
 export const LuckyCell = React.memo<Props>(({lucky, value}) => {
     return (
-        <GridItem w="full" fontSize="sm" flexDirection="column" display="flex" alignItems="center" justifyContent="center" color="white" p={1} bgColor={lucky ? "red.500" : "black"} fontWeight="bold">
+        <GridItem
+            w="full"
+            fontSize="sm"
+            flexDirection="column"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            color="white"
+            p={1}
+            bgColor={lucky ? "red.300" : "gray.500"}
+            fontWeight="bold"
+        >
             {value.split("").map(x => (
                 <div key={x}>{x}</div>
             ))}
