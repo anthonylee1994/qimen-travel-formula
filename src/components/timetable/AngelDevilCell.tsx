@@ -7,6 +7,10 @@ interface Props {
 }
 
 export const AngleDevilCell = React.memo<Props>(({values}) => {
+    if (values.length === 0) {
+        return null;
+    }
+
     return (
         <GridItem
             w="full"

@@ -8,6 +8,10 @@ interface Props {
 }
 
 export const EarthPatternCell = React.memo<Props>(({values}) => {
+    if (values.length === 0) {
+        return null;
+    }
+
     return (
         <GridItem w="full" p={1} fontSize="sm" display="flex" alignItems="center" justifyContent="center" flexWrap="wrap" borderStyle="solid" borderWidth={2} borderColor="teal.300" bgColor="teal.50">
             {values.map((value, index) => {
